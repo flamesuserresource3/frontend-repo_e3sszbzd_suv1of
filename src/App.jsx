@@ -1,28 +1,47 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import About from './components/About';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+    <div className="font-inter text-gray-900">
+      {/* Header */}
+      <header className="fixed inset-x-0 top-0 z-50 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <a href="#home" className="text-sm font-semibold text-orange-600">Portfolio</a>
+          <nav className="hidden gap-6 text-sm text-gray-700 md:flex">
+            <a href="#about" className="hover:text-orange-700">About</a>
+            <a href="#projects" className="hover:text-orange-700">Projects</a>
+            <a href="#contact" className="hover:text-orange-700">Contact</a>
+          </nav>
+          <a
+            href="#contact"
+            className="rounded-full bg-orange-600 px-4 py-2 text-xs font-medium text-white transition hover:bg-orange-700 md:text-sm"
           >
-            Count is {count}
-          </button>
+            Get in touch
+          </a>
         </div>
-      </div>
-    </div>
-  )
-}
+      </header>
 
-export default App
+      {/* Main Sections */}
+      <main className="pt-16">
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t border-orange-200 bg-white">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-8 text-sm text-gray-600">
+          <p>© {new Date().getFullYear()} Your Name</p>
+          <a href="#home" className="text-orange-600">Back to top ↑</a>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
